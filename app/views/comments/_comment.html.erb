@@ -1,0 +1,22 @@
+<p>
+  <strong>Commenter:</strong>
+  <%= comment.user.email %>
+</p>
+ 
+<p>
+  <strong>Comment:</strong>
+  <%= comment.body %>
+</p>
+
+<% if user_signed_in?%>
+	<%unless current_user.id != comment.user_id %>
+	  <%= link_to 'Destroy Comment', [comment.article, comment],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+	<%end%>
+<%end%>
+
+
+<p>
+  
+</p>

@@ -1,0 +1,15 @@
+<%= form_with(model: [ @article, @article.comments.build ], local: true) do |form| %>
+  
+  <p>
+    <%= form.label :body %><br>
+    <%= form.text_area :body %>
+  </p>
+  
+  <%if user_signed_in? %>
+    <p>Commenting as <strong><%= current_user.email %></strong></p>  
+  <%end%>
+  
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
