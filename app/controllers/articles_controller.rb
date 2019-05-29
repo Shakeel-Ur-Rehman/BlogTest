@@ -17,6 +17,10 @@ class ArticlesController < ApplicationController
 	  end
 	end
 
+	def myarticles
+		@articles = current_user.articles
+	end
+
 
 	def update
 	  @article = Article.find(params[:id])
