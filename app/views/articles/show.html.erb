@@ -1,18 +1,49 @@
-<p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
- 
-<p>
-  <strong>Text:</strong>
-  <%= @article.text %>
-</p>
- 
-<h2>Comments</h2>
-<%= render @article.comments %>
- 
-<h2>Add a comment:</h2>
-<%= render 'comments/form' %>
+
+
+
+
+
+
+<main role="main" class="container">
+      
+
+      	<div class="jumbotron p-3 p-md-5 text-white rounded bg-light">
+			<%=image_tag @article.imageFile, :style=>"height:400px ;width:100%"%>
+		</div>
+
+      <div class="row">
+        <div class="col-md-8 blog-main">
+          <h1 class="pb-3 mb-4 font-italic border-bottom">
+            <strong><%=@article.title%></strong>
+          </h1>
+
+          <div class="blog-post">
+            <h2 class="blog-post-title">A blog post</h2>
+            <p class="blog-post-meta"> Dated <small><b><%= @article.created_at%> by </b></small><a href="#"><%= @article.user.name%></a></p>
+
+
+            <p><%=@article.text%></p>
+          </div><!-- /.blog-post -->
+
+          
+          
+
+          
+
+        </div><!-- /.blog-main -->
+
+
+      </div><!-- /.row -->
+
+     <div class="col-md-8">
+      	<h2 >Comments</h2><hr/>
+		<%= render @article.comments %>
+		 
+		<h2>Add a comment:</h2>
+		<%= render 'comments/form' %>
+	</div>
+    </main>
+
 
 <%= link_to 'Edit', edit_article_path(@article) %> |
 <%= link_to 'Back', articles_path %>

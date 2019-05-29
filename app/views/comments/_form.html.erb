@@ -1,8 +1,8 @@
-<%= form_with(model: [ @article, @article.comments.build ], local: true) do |form| %>
+<%= form_with(model: [ @article, @article.comments.build ], remote: true) do |form| %>
   
   <p>
     <%= form.label :body %><br>
-    <%= form.text_area :body %>
+    <%= form.text_field :body ,:class=>"form-control"%>
   </p>
   
   <%if user_signed_in? %>
@@ -10,6 +10,6 @@
   <%end%>
   
   <p>
-    <%= form.submit %>
+    <%= form.submit  :class=>"btn btn-primary"%>
   </p>
 <% end %>
