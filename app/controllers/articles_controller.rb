@@ -39,7 +39,7 @@ class ArticlesController < ApplicationController
 
 	
 	def index
-	    @articles = Article.all
+	    @articles = Article.where(["title like ?","%#{params[:search]}%"])
 	end
 
 	
