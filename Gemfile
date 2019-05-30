@@ -23,6 +23,8 @@ gem 'jquery-rails'
 gem 'ckeditor'
 
 gem 'paperclip'
+
+gem 'pagy'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
 

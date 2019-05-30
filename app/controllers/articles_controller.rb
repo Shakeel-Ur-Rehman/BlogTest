@@ -1,5 +1,4 @@
 class ArticlesController < ApplicationController
-	
 	before_action :authenticate_user!,except:[:index, :show]
 
 	def new
@@ -39,7 +38,7 @@ class ArticlesController < ApplicationController
 
 	
 	def index
-	    @articles = Article.where(["title like ?","%#{params[:search]}%"])
+	    @pagy , @articles = pagy(Article.where(["title like ?","%#{params[:search]}%"]),items: 3)
 	end
 
 	
