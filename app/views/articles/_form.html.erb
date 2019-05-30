@@ -1,3 +1,4 @@
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
 <div class="row">
   <div class="col-md-8" style="margin: auto;">
   <%= form_with model:@article, local: true do |form| %>
@@ -20,10 +21,52 @@
       <%= form.text_field :title , :class=>"form-control"%>
     </div>
 
-    <div class="form-group">
+    
+    <div class="form-group" style="float: left;">
+
       <%= form.label :imageFile %><br>
-      <%= form.file_field :imageFile%>
+      <%= form.file_field :imageFile, :name=>"file", :id=>"profile-img"%>
     </div>
+
+    <div style="float:right;">
+      <% if @article.imageFile.attached?%>
+        <%=image_tag @article.imageFile, :style=>"height:100px; width:300px"%>
+      <%end%>
+    </div>
+
+    <img src="" id="profile-img-tag" width="200px" />
+
+
+    <script type="text/javascript">
+
+        function readURL(input) {
+
+            if (input.files && input.files[0]) {
+
+                var reader = new FileReader();
+
+                
+
+                reader.onload = function (e) {
+
+                    $('#profile-img-tag').attr('src', e.target.result);
+
+                }
+
+                reader.readAsDataURL(input.files[0]);
+
+            }
+
+        }
+
+        $("#profile-img").change(function(){
+
+            readURL(this);
+
+        });
+
+    </script>
+
    
     <div class="form-group">
       <%= form.label :text %><br>

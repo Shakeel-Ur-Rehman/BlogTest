@@ -17,7 +17,7 @@ class ArticlesController < ApplicationController
 	end
 
 	def myarticles
-		@articles = current_user.articles
+		@pagy , @articles = pagy(current_user.articles,items:10)
 	end
 
 
