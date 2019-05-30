@@ -16,7 +16,7 @@
             <p class="blog-post-meta"> Dated <small><b><%= @article.created_at%> by </b></small><a href="#"><%= @article.user.name%></a></p>
 
 
-            <p><%=@article.text%></p>
+            <p><%=@article.text.html_safe%></p>
           </div><!-- /.blog-post -->
 
           
@@ -29,6 +29,7 @@
 
       </div><!-- /.row -->
 
+      <br><br>
      <div class="col-md-8">
       	<h2 >Comments</h2><hr/>
 		<%= render @article.comments %>

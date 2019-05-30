@@ -19,6 +19,10 @@ gem 'uglifier', '>= 1.3.0'
 gem 'bootstrap'
 
 gem 'jquery-rails'
+
+gem 'ckeditor'
+
+gem 'paperclip'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
 
